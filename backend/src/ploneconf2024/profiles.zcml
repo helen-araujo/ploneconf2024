@@ -1,0 +1,41 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    i18n_domain="ploneconf2024"
+    >
+
+  <genericsetup:registerProfile
+      name="default"
+      title="Treinamento Conferencia Plone: Install"
+      description="Package to configure a new Treinamento Conferencia Plone site"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      directory="profiles/default"
+      />
+
+  <genericsetup:registerProfile
+      name="initial"
+      title="Treinamento Conferencia Plone: Example content"
+      description="Create example content to showcase the new website"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      directory="profiles/initial"
+      pre_handler=".setuphandlers.initial.create_example_content"
+      />
+
+  <genericsetup:registerProfile
+      name="uninstall"
+      title="Treinamento Conferencia Plone: Uninstall"
+      description="Uninstall Treinamento Conferencia Plone setup."
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      directory="profiles/uninstall"
+      />
+
+  <!-- Hide Uninstall Profile-->
+  <utility
+      factory=".setuphandlers.HiddenProfiles"
+      name="ploneconf2024"
+      />
+
+
+  <include package=".upgrades" />
+
+</configure>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layers>
+  <layer interface="ploneconf2024.interfaces.IBrowserLayer"
+         name="ploneconf2024"
+  />
+</layers>
